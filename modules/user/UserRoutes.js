@@ -1,17 +1,21 @@
 'use strict';
 
 const router = require('express').Router();
+const UserController = require('./UserController');
+
+router.route('/:id')
+    .get(UserController.get)
+
+router.route('/:username')
+    .get(UserController.getByUsername)
 
 router.route('/register')
-    .post();
+    .post(UserController.create)
 
 router.route('/authenticate')
-    .post();
+    .post()
 
 router.route('/profile')
-    .get();
-
-router.route('/validate')
-    .post();
+    .get()
 
 module.exports = router;

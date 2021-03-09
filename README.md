@@ -10,4 +10,6 @@ I will also implement other functionalities in this. All those things
 will be mentioned below in the same order they are implemented.
 
 <hr>
+
 1. Express setup, routes, and database connection.
+2. Create user model, routes, controller. 
