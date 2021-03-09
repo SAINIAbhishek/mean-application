@@ -1,4 +1,4 @@
 module.exports = {
-    database: 'mongodb://localhost/mean-application',
+    database: 'mongodb://localhost:27017/mean-application',
     secret: 'meanApplication'
 };
