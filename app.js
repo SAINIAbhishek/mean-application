@@ -6,8 +6,8 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const passport = require('passport');
 const dbConfig = require('./config/db');
+const Authentication = require('./modules/authentication/Authentication');
 
 // loading models in Mongoose
 require('./ApiModels');
@@ -45,6 +45,9 @@ const appBoot = () => {
 
     // parse application/json
     app.use(bodyParser.json());
+
+    // passport middleware
+    Authentication.initializePassport(app);
 
     // authenticated routes
     app.use('/api', require('./ApiRoutes'));

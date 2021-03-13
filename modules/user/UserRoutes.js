@@ -12,9 +12,6 @@ router.route('/:username')
 router.route('/register')
     .post(UserController.create)
 
-router.route('/authenticate')
-    .post()
-
 router.route('/profile')
     .get()
 
