@@ -1,1 +1,35 @@
-<p>navbar works!</p>
+<nav class="navbar is-light" role="navigation" aria-label="main navigation">
+  <div class="container is-full-fullhd">
+
+    <!-- brand -->
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="favicon.ico" alt=""> <span class="title is-5 ml-2">Mean Application</span>
+      </a>
+    </div>
+    <!-- /brand -->
+
+    <!-- main menu -->
+    <div class="navbar-menu">
+
+      <div class="navbar-start">
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a [routerLink]="'/register'" class="button is-primary">
+              <strong>Sign up</strong>
+            </a>
+            <a [routerLink]="'/login'" class="button is-light">
+              Log in
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /main menu -->
+
+  </div>
+</nav>
