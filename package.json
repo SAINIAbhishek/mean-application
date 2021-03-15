@@ -20,7 +20,7 @@
     "bcrypt": "^5.0.1"
   },
   "devDependencies": {
-
+    "@angular/cli": "^11.2.4"
   },
   "author": "Abhishek SAINI",
   "license": "ISC"

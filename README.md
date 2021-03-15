@@ -13,4 +13,5 @@ will be mentioned below in the same order they are implemented.
 
 - Express setup, routes, and database connection.
 - Create user model, routes, controller. 
-- API's authentication and token
+- API's authentication and token.
+- Frontend part in Angular. 
