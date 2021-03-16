@@ -19,6 +19,8 @@ class UserController {
             user.password = await bcrypt.hash(user.password, salt);
 
             await user.save();
+            console.log('The new user has been registered.');
+            return res.status(200).send({success: true, msg: 'The user has been registered.'});
         } catch (e) {
             console.error(e.message);
             return res.status(400).send({

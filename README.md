@@ -15,3 +15,4 @@ will be mentioned below in the same order they are implemented.
 - Create user model, routes, controller. 
 - API's authentication and token.
 - Frontend part in Angular. 
+- Register user (Reactive form approach)

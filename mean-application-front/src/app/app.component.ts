@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {NotificationAnimationType, Options} from "angular2-notifications";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'mean-application-front';
+
+  private _toastNotificationsOptions: Options = {
+    position: ['bottom', 'right'],
+    timeOut: 1500,
+    lastOnBottom: true,
+    maxStack: 1,
+    animate: NotificationAnimationType.FromRight,
+    pauseOnHover: true,
+    showProgressBar: true,
+    clickToClose: true,
+    clickIconToClose: true
+  };
+
+  get toastNotificationsOptions(): Options {
+    return this._toastNotificationsOptions;
+  }
+
 }

@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {HttpClientModule} from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import {NavbarModule} from "./components/navbar/navbar.module";
+import {SimpleNotificationsModule} from "angular2-notifications";
+
 
 @NgModule({
   declarations: [
@@ -12,8 +16,11 @@ import {NavbarModule} from "./components/navbar/navbar.module";
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
-    NavbarModule
+    BrowserAnimationsModule,
+    NavbarModule,
+    SimpleNotificationsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
