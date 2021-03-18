@@ -5,7 +5,7 @@ import {User} from "../models/user";
 @Injectable({providedIn: 'root'})
 export class AuthService {
 
-  private _user: User = <User>{};
+  private _user: User | null = <User>{};
 
   private _authToken = '';
 
@@ -30,11 +30,22 @@ export class AuthService {
     return this._httpClient.post('http://localhost:3000/api/authenticate/login', user, {headers: headers});
   }
 
-  get authUser(): User {
+  public logout() {
+    this._user = null;
+    this._authToken = '';
+    localStorage.removeItem('mean_app_token');
+    localStorage.removeItem('mean_app_user');
+  }
+
+  get isAuthenticated(): boolean {
+    return !!(this._user && this._user.id && this._authToken);
+  }
+
+  get authUser(): User | null {
     return this._user;
   }
 
-  get user(): User {
+  get user(): User | null {
     return this._user;
   }
 

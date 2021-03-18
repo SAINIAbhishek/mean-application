@@ -5,6 +5,7 @@ import {ToastNotificationService} from "../../services/toast-notification.servic
 import {first} from "rxjs/operators";
 import {HttpErrorResponse} from "@angular/common/http";
 import {User} from "../../models/user";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private _formBuilder: FormBuilder,
               private _authService: AuthService,
+              private _router: Router,
               private _toastNotificationService: ToastNotificationService) {
     this._buildForm();
   }
@@ -45,8 +47,7 @@ export class LoginComponent implements OnInit {
     if (this._loginForm.valid) {
       this._authService.login(this._user).pipe(first()).subscribe((res: any) => {
         this._authService.initializeUser(res.token, res.user);
-        this._toastNotificationService.success(res.msg);
-        this._loginForm.reset();
+        this._router.navigate(['/home']);
       }, (err: HttpErrorResponse) => {
         this._toastNotificationService.error(err.error.msg);
         console.error(err);
