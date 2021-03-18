@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
   public onSubmit() {
     if (this._loginForm.valid) {
       this._authService.login(this._user).pipe(first()).subscribe((res: any) => {
-        console.log(res);
+        this._authService.initializeUser(res.token, res.user);
         this._toastNotificationService.success(res.msg);
         this._loginForm.reset();
       }, (err: HttpErrorResponse) => {

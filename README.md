@@ -17,3 +17,4 @@ will be mentioned below in the same order they are implemented.
 - Frontend part in Angular. 
 - Register user (Reactive form approach)
 - Login user
+- Store token in local storage

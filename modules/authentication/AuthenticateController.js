@@ -25,7 +25,7 @@ class AuthenticateController {
 
                 if (isMatch) {
                     const token = user.generateToken();
-                    res.send({
+                    res.status(200).send({
                         success: true,
                         token: 'JWT ' + token,
                         user: user.toSend(),
