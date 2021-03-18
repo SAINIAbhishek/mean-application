@@ -13,4 +13,10 @@ export class AuthService {
     return this._httpClient.post('http://localhost:3000/api/users/register', user, {headers: headers});
   }
 
+  public login(user: User) {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json');
+    return this._httpClient.post('http://localhost:3000/api/authenticate/login', user, {headers: headers});
+  }
+
 }

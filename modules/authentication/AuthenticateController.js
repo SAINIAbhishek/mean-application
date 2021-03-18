@@ -28,7 +28,8 @@ class AuthenticateController {
                     res.send({
                         success: true,
                         token: 'JWT ' + token,
-                        user: user.toSend()
+                        user: user.toSend(),
+                        msg: 'The user has been logged in.'
                     });
                 } else {
                     return res.status(404).send({success: false, msg: 'The username or password is not correct.'});

@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private _formBuilder: FormBuilder,
               private _authService: AuthService,
-              private _toastNotificationService: ToastNotificationService,) {
+              private _toastNotificationService: ToastNotificationService) {
     this._buildForm();
   }
 
