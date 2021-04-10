@@ -2,6 +2,7 @@
 
 const MODELS = require('../../ApiModels');
 const UserModel = MODELS.User;
+const passport = require('passport');
 
 class AuthenticateController {
 
@@ -37,6 +38,16 @@ class AuthenticateController {
             })
         });
 
+    }
+
+    static isAuthenticated(req, res, next) {
+        passport.authenticate('jwt', {session:false}, (err, _) => {
+            if (err) {
+                console.error(err.message);
+                throw err;
+            }
+            next();
+        });
     }
 
 }

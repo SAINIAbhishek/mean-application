@@ -11,6 +11,11 @@ export class AuthService {
 
   constructor(private _httpClient: HttpClient) { }
 
+  private _loadToken() {
+    this._authToken = localStorage.getItem('mean_app_token')
+      ? <string>localStorage.getItem('mean_app_token') : '';
+  }
+
   public initializeUser(token: string, user: User) {
     this._authToken = token;
     this._user = user;
@@ -28,6 +33,14 @@ export class AuthService {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json');
     return this._httpClient.post('http://localhost:3000/api/authenticate/login', user, {headers: headers});
+  }
+
+  public profile() {
+    let headers = new HttpHeaders();
+    this._loadToken();
+    headers.append('Authorization', this._authToken);
+    headers.append('Content-Type', 'application/json');
+    return this._httpClient.get('http://localhost:3000/api/users/profile', {headers: headers});
   }
 
   public logout() {
